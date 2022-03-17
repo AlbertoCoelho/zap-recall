@@ -5,15 +5,26 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap:8px;
 }
 
-h1 {
-  font-family: 'Righteous';
+.logo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 88px;
+}
+
+.texto {
+  font-family: Righteous;
   font-size: 25px;
   font-style: normal;
   font-weight: 400;
   line-height: 31px;
   letter-spacing: -0.012em;
   text-align: center;
-
+  color: #FFFFFF;
 }
+
+

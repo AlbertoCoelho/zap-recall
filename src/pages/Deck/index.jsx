@@ -1,8 +1,11 @@
+import FlashCard from "../Flashcard";
 
-
-const Deck = () => {
+const Deck = ({setPage}) => {
   return (
-    <p>Meu lindo deck</p>
+    <>
+      <button onClick={()=> setPage("finalPage")}>Meu botao do deck</button>
+      <FlashCard />
+    </>
   );
 }
 
