@@ -1,4 +1,4 @@
-.container-flashcard {
+.container-flashcard-not-clicked {
   width: 90%;
   height: 40px;
   
@@ -14,11 +14,61 @@
 
 }
 
-span {
+.container-flashcard-not-clicked span {
   font-family: 'Recursive';
   font-style: normal;
   font-weight: 700;
   font-size: 12px;
   line-height: 14px;
   color: #333333;
+}
+
+.container-flashcard-clicked {
+  width: 90%;
+  height: 80px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+
+  background-color: #FFFFD5;
+  box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+}
+
+.container-flashcard-clicked img{
+  width: 20px;
+  height: 13px;
+}
+
+.question {
+  width: 100%;
+  height: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.question span {
+  font-family: 'Recursive';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  color: #333333;
+  padding-left: 6px;
+}
+
+.flip {
+  width: 100%;
+  height: 50%;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+
+  padding: 0px 7px 7px 0px;
+
 }

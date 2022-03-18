@@ -6,9 +6,9 @@ const HomePage = ({setPage}) => {
     <div className="container">
       <div className="logo">
         <img src={Logo} alt="LogoMainPage" />
-        <p className="texto">ZapRecall</p>
+        <span>ZapRecall</span>
       </div>
-      <button onClick={() => setPage("deck")}>Iniciar Recall!</button>
+      <button onClick={() => setPage("Deck")}>Iniciar Recall!</button>
     </div>
   );
 }
