@@ -61,6 +61,39 @@
   padding-left: 15px;
 }
 
+.container-flashcard-not-clicked span.incorrect {
+  font-family: 'Recursive';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  text-decoration-line: line-through;
+
+  color: #FF3030;
+}
+
+.container-flashcard-not-clicked span.almost {
+  font-family: 'Recursive';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  text-decoration-line: line-through;
+
+  color: #FF922E;
+}
+
+.container-flashcard-not-clicked span.correct {
+  font-family: 'Recursive';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  text-decoration-line: line-through;
+
+  color: #2FBE34;
+}
+
 .flip {
   width: 100%;
   height: 50%;
@@ -106,3 +139,4 @@
 .button-container button.correct{
   background-color: #2FBE34;
 }
+
