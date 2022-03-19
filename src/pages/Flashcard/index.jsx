@@ -6,11 +6,18 @@ import CorrectIcon from "../../assets/correcticon.svg";
 import AlmostIcon from "../../assets/almosticon.svg";
 import './style.css';
 
-const FlashCard = ({ question, position, answer }) => {
+const FlashCard = ({ question, position, answer, index }) => {
   const [isFlipped,setIsFlipped] = useState(false);
   const [isClicked,setIsClicked] = useState(false);
   const [questionStatus,setQuestionStatus] = useState("");
   const [imagem,setImagem] = useState(() => RevealQuestionIcon);
+
+  function actionFlashCard(questionStatus,imagem){
+    setQuestionStatus(questionStatus);
+    setIsFlipped(false);
+    setIsClicked(false);
+    setImagem(imagem);
+  }
 
   if(isFlipped){
     return (
@@ -19,9 +26,9 @@ const FlashCard = ({ question, position, answer }) => {
           <span>Resposta {answer}</span>
         </div>
         <div className="button-container">
-          <button onClick={() => {setQuestionStatus("incorrect");setIsFlipped(false);setIsClicked(false);setImagem(() => IncorrectIcon)} }>Não lembrei</button>
-          <button onClick={() => {setQuestionStatus("almost");setIsFlipped(false);setIsClicked(false);setImagem(() => AlmostIcon)}  }>Quase não lembrei</button>
-          <button onClick={() => {setQuestionStatus("correct");setIsFlipped(false);setIsClicked(false);setImagem(() => CorrectIcon)} }>Zap!</button>
+          <button onClick={() => actionFlashCard("incorrect", () => IncorrectIcon) }>Não lembrei</button>
+          <button onClick={() => actionFlashCard("almost", () => AlmostIcon)  }>Quase não lembrei</button>
+          <button onClick={() => actionFlashCard("correct", () => CorrectIcon) }>Zap!</button>
         </div>
       </div>
     );
@@ -42,7 +49,7 @@ const FlashCard = ({ question, position, answer }) => {
     }
       return (
         <div className="container-flashcard-not-clicked">
-          <span className={`${questionStatus}`}>Pergunta index {position}</span>
+          <span className={`${questionStatus}`}>Pergunta {index}</span>
           <img onClick={() => setIsClicked(true)} src={imagem} alt="Reveal question" />
         </div>
       );

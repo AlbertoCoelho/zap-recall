@@ -10,7 +10,7 @@ const RemainingPages = ({children}) => {
         <span>ZapRecall</span>
       </header>
       {children}
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 }

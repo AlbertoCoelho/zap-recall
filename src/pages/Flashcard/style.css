@@ -1,3 +1,7 @@
+.wrapper {
+  gap: 25px;
+}
+
 .container-flashcard-not-clicked {
   width: 90%;
   height: 65px;
@@ -6,6 +10,7 @@
   justify-content: space-between;
   align-items: center;
   margin: 0 auto;
+  margin-bottom: 10px;
   padding: 15px;
 
   background-color: #FFFFFF;
@@ -31,6 +36,7 @@
   flex-direction: column;
   align-items: center;
   margin: 0 auto;
+  margin-bottom: 10px;
 
   background-color: #FFFFD5;
   box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.15);
