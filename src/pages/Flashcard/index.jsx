@@ -3,18 +3,28 @@ import RevealQuestionIcon from "../../assets/trianglebutton.png";
 import FlipIcon from "../../assets/flip.svg";
 import './style.css';
 
-const FlashCard = ({ question, position }) => {
+const FlashCard = ({ question, position, answer }) => {
   const [isFlipped,setIsFlipped] = useState(false);
   const [isClicked,setIsClicked] = useState(false);
+  const [questionStatus,setQuestionStatus] = useState("correct");
 
   if(isFlipped){
     return (
-      <h1>Algo</h1>
+      <div className="container-flashcard-clicked">
+        <div className="question">
+          <span>Outra coisa {answer}</span>
+        </div>
+        <div className="button-container">
+          <button onClick={() => {setQuestionStatus("incorrect");setIsFlipped(false);setIsClicked(false)} }>Não lembrei</button>
+          <button onClick={() => setQuestionStatus("almost")}>Quase não lembrei</button>
+          <button onClick={() => setQuestionStatus("correct")}>Zap!</button>
+        </div>
+      </div>
     );
   }
 
   else {
-    if(isClicked){
+    if(isClicked === true){
       return (
         <div className="container-flashcard-clicked">
           <div className="question">
@@ -28,7 +38,7 @@ const FlashCard = ({ question, position }) => {
     }
       return (
         <div className="container-flashcard-not-clicked">
-          <span>Pergunta {position}</span>
+          <span className={{questionStatus}} >Pergunta {position}</span>
           <img onClick={() => setIsClicked(true)} src={RevealQuestionIcon} alt="Reveal question" />
         </div>
       );
