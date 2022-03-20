@@ -6,7 +6,7 @@ import CorrectIcon from "../../assets/correcticon.svg";
 import AlmostIcon from "../../assets/almosticon.svg";
 import './style.css';
 
-const FlashCard = ({ question, position, answer, index }) => {
+const FlashCard = ({ question, answer, index, answeredFlashcards, setAnsweredFlashcard }) => {
   const [isFlipped,setIsFlipped] = useState(false);
   const [isClicked,setIsClicked] = useState(false);
   const [questionStatus,setQuestionStatus] = useState("");
@@ -17,13 +17,14 @@ const FlashCard = ({ question, position, answer, index }) => {
     setIsFlipped(false);
     setIsClicked(false);
     setImagem(imagem);
+    setAnsweredFlashcard(answeredFlashcards + 1);
   }
 
   if(isFlipped){
     return (
       <div className="container-flashcard-clicked">
         <div className="question">
-          <span>Resposta {answer}</span>
+          <span>{answer}</span>
         </div>
         <div className="button-container">
           <button onClick={() => actionFlashCard("incorrect", () => IncorrectIcon) }>Não lembrei</button>
@@ -39,7 +40,7 @@ const FlashCard = ({ question, position, answer, index }) => {
       return (
         <div className="container-flashcard-clicked">
           <div className="question">
-            <span>Pergunta {question}</span>
+            <span>{question}</span>
           </div>
           <div className="flip">
             <img onClick={() => setIsFlipped(true)} src={FlipIcon} alt="Turn flashcard" />

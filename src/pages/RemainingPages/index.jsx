@@ -2,7 +2,7 @@ import MiniLogo from "../../assets/logo-pequeno.png";
 import Footer from "../Footer";
 import './style.css';
 
-const RemainingPages = ({children}) => {
+const RemainingPages = ({ children, answeredFlashcards,sizeDeck }) => {
   return (
     <div className="container-pages">
       <header>
@@ -10,7 +10,7 @@ const RemainingPages = ({children}) => {
         <span>ZapRecall</span>
       </header>
       {children}
-      <Footer />
+      <Footer answeredFlashcards={answeredFlashcards} sizeDeck={sizeDeck}/>
     </div>
   );
 }

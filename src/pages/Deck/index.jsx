@@ -1,6 +1,6 @@
 import FlashCard from "../Flashcard";
 
-const Deck = ({setPage}) => {
+const Deck = ({answeredFlashcards,setAnsweredFlashcard,setSizeDeck}) => {
   const deck = [
     {
       question: "O que é JSX?",
@@ -36,12 +36,13 @@ const Deck = ({setPage}) => {
     }  
   ]
 
+  setSizeDeck(deck.length);
 
   return (
     <>
       {
         deck.map( (item, index) => (
-          <FlashCard question={item.question} answer={item.answer} index={index+1}/>
+          <FlashCard question={item.question} answer={item.answer} index={index+1} answeredFlashcards={answeredFlashcards} setAnsweredFlashcard={setAnsweredFlashcard} />
         ))
       }
     </>

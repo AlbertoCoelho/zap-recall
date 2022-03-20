@@ -1,9 +1,9 @@
 import './style.css';
 
-const Footer = ({ answeredFlashcards,deckSize }) => {
+const Footer = ({ answeredFlashcards,sizeDeck }) => {
   return (
     <div className="footer-container">
-        <span>{answeredFlashcards}/{deckSize} CONCLUÍDOS</span>
+        <span>{answeredFlashcards}/{sizeDeck} CONCLUÍDOS</span>
         <div class="icons">
         </div>
     </div>
