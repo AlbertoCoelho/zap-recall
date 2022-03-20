@@ -6,18 +6,21 @@ import CorrectIcon from "../../assets/correcticon.svg";
 import AlmostIcon from "../../assets/almosticon.svg";
 import './style.css';
 
-const FlashCard = ({ question, answer, index, answeredFlashcards, setAnsweredFlashcard }) => {
+const FlashCard = ({ question,answer,index,answeredFlashcards,setAnsweredFlashcard,footerImages,setFooterImages,finalFooter,actionDeck }) => {
   const [isFlipped,setIsFlipped] = useState(false);
   const [isClicked,setIsClicked] = useState(false);
   const [questionStatus,setQuestionStatus] = useState("");
-  const [imagem,setImagem] = useState(() => RevealQuestionIcon);
+  const [images,setImages] = useState(() => RevealQuestionIcon);
 
-  function actionFlashCard(questionStatus,imagem){
+  function actionFlashCard(questionStatus,image){
     setQuestionStatus(questionStatus);
     setIsFlipped(false);
     setIsClicked(false);
-    setImagem(imagem);
+    setImages(image);
     setAnsweredFlashcard(answeredFlashcards + 1);
+    setFooterImages(image);
+    actionDeck(index -1,questionStatus);
+    finalFooter();
   }
 
   if(isFlipped){
@@ -27,9 +30,9 @@ const FlashCard = ({ question, answer, index, answeredFlashcards, setAnsweredFla
           <span>{answer}</span>
         </div>
         <div className="button-container">
-          <button onClick={() => actionFlashCard("incorrect", () => IncorrectIcon) }>Não lembrei</button>
-          <button onClick={() => actionFlashCard("almost", () => AlmostIcon)  }>Quase não lembrei</button>
-          <button onClick={() => actionFlashCard("correct", () => CorrectIcon) }>Zap!</button>
+          <button onClick={() => {actionFlashCard("incorrect", () => IncorrectIcon)} }>Não lembrei</button>
+          <button onClick={() => {actionFlashCard("almost", () => AlmostIcon)}  }>Quase não lembrei</button>
+          <button onClick={() => {actionFlashCard("correct", () => CorrectIcon)} }>Zap!</button>
         </div>
       </div>
     );
@@ -51,7 +54,7 @@ const FlashCard = ({ question, answer, index, answeredFlashcards, setAnsweredFla
       return (
         <div className="container-flashcard-not-clicked">
           <span className={`${questionStatus}`}>Pergunta {index}</span>
-          <img onClick={() => setIsClicked(true)} src={imagem} alt="Reveal question" />
+          <img onClick={() => setIsClicked(true)} src={images} alt="Reveal question" />
         </div>
       );
   }
