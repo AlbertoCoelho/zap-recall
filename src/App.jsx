@@ -7,7 +7,7 @@ const App = () => {
   const [page,setPage] = useState("HomePage");
   const [answeredFlashcards,setAnsweredFlashcard] = useState(0);
   const [sizeDeck,setSizeDeck] = useState(0);
-  const [footerImages,setFooterImages] = useState("");
+  const [footerImages,setFooterImages] = useState([]);
   const [finalFooter,setFinalFooter] = useState("");
 
   return (

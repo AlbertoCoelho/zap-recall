@@ -10,7 +10,7 @@ const FlashCard = ({ question,answer,index,answeredFlashcards,setAnsweredFlashca
   const [isFlipped,setIsFlipped] = useState(false);
   const [isClicked,setIsClicked] = useState(false);
   const [questionStatus,setQuestionStatus] = useState("");
-  const [images,setImages] = useState(() => RevealQuestionIcon);
+  const [images,setImages] = useState(<img onClick={() => setIsClicked(true)} src={RevealQuestionIcon} alt="RevealQuestionIcon" />);
 
   function actionFlashCard(questionStatus,image){
     setQuestionStatus(questionStatus);
@@ -30,9 +30,9 @@ const FlashCard = ({ question,answer,index,answeredFlashcards,setAnsweredFlashca
           <span>{answer}</span>
         </div>
         <div className="button-container">
-          <button className="incorrect" onClick={() => {actionFlashCard("incorrect", () => IncorrectIcon)} }>Não lembrei</button>
-          <button className="almost" onClick={() => {actionFlashCard("almost", () => AlmostIcon)}  }>Quase não lembrei</button>
-          <button className="correct" onClick={() => {actionFlashCard("correct", () => CorrectIcon)} }>Zap!</button>
+          <button className="incorrect" onClick={() => {actionFlashCard("incorrect", <img onClick={() => setIsClicked(true)} src={IncorrectIcon} alt="Incorrect Icon" />)} }>Não lembrei</button>
+          <button className="almost" onClick={() => {actionFlashCard("almost", <img onClick={() => setIsClicked(true)} src={AlmostIcon} alt="Almost Icon" />)}  }>Quase não lembrei</button>
+          <button className="correct" onClick={() => {actionFlashCard("correct", <img onClick={() => setIsClicked(true)} src={CorrectIcon} alt="Correct Icon" />)} }>Zap!</button>
         </div>
       </div>
     );
@@ -54,7 +54,7 @@ const FlashCard = ({ question,answer,index,answeredFlashcards,setAnsweredFlashca
       return (
         <div className="container-flashcard-not-clicked">
           <span className={`${questionStatus}`}>Pergunta {index}</span>
-          <img onClick={() => setIsClicked(true)} src={images} alt="Reveal question" />
+          {images}
         </div>
       );
   }

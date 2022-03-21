@@ -10,6 +10,7 @@ const RemainingPages = ({ children, answeredFlashcards,sizeDeck,footerImages,fin
         <span>ZapRecall</span>
       </header>
       {children}
+      <div className="wrapper"></div>
       <Footer answeredFlashcards={answeredFlashcards} sizeDeck={sizeDeck} footerImages={footerImages} finalFooter={finalFooter} />
     </div>
   );
