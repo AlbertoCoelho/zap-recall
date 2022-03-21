@@ -6,42 +6,42 @@ const Deck = ({setPage,answeredFlashcards,setAnsweredFlashcard,setSizeDeck,foote
     {
       question: "O que é JSX?",
       answer: "Uma extensão de linguagem do JavaScript",
-      status: "incorrect"
+      status: ""
     },
     {
       question: "O React é __",
       answer: "Uma biblioteca JavaScript para construção de interfaces",
-      status: "incorrect"
+      status: ""
     },
     {
       question: "Componentes devem iniciar com __ ",
       answer: "Letra maiúscula",
-      status: "incorrect"
+      status: ""
     },
     {
       question: "Podemos colocar __ dentro do JSX",
       answer: "Expressões",
-      status: "incorrect"
+      status: ""
     },
     {
       question: "O ReactDOM nos ajuda __",
       answer: "Interagindo com a DOM para colocar componentes React na mesma",
-      status: "incorrect"
+      status: ""
     },
     {
       question: "Usamos o npm para __",
       answer: "Gerenciar os pacotes necessários e suas dependências",
-      status: "incorrect"
+      status: ""
     },
     {
       question: "Usamos props para __",
       answer: "Passar diferentes informações para componentes",
-      status: "incorrect"
+      status: ""
     },
     {
       question: "Usamos estado (state) para __",
       answer: "Dizer para o React quais informações quando atualizadas devem renderizar a tela novamente",
-      status: "incorrect"
+      status: ""
     }  
   ]);
 
@@ -62,10 +62,16 @@ const Deck = ({setPage,answeredFlashcards,setAnsweredFlashcard,setSizeDeck,foote
     setDeck(updateDeck);
   }
 
+  function randomOrder () {
+    return Math.random() - 0.5;
+  }
+
+  let randomDeck = deck.sort(randomOrder);
+
   return (
     <>
       {
-        deck.map( (item, index) => (
+        randomDeck.map( (item, index) => (
           <FlashCard key={index} question={item.question} answer={item.answer} index={index+1} answeredFlashcards={answeredFlashcards} setAnsweredFlashcard={setAnsweredFlashcard} setFooterImages={setFooterImages} footerImages={footerImages} finalFooter={finalFooter} actionDeck={actionDeck} />
         ))
       }

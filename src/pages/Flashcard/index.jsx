@@ -18,7 +18,7 @@ const FlashCard = ({ question,answer,index,answeredFlashcards,setAnsweredFlashca
     setIsClicked(false);
     setImages(image);
     setAnsweredFlashcard(answeredFlashcards + 1);
-    setFooterImages(image);
+    setFooterImages([...footerImages,image]);
     actionDeck(index -1,questionStatus);
     finalFooter();
   }
@@ -30,9 +30,9 @@ const FlashCard = ({ question,answer,index,answeredFlashcards,setAnsweredFlashca
           <span>{answer}</span>
         </div>
         <div className="button-container">
-          <button onClick={() => {actionFlashCard("incorrect", () => IncorrectIcon)} }>Não lembrei</button>
-          <button onClick={() => {actionFlashCard("almost", () => AlmostIcon)}  }>Quase não lembrei</button>
-          <button onClick={() => {actionFlashCard("correct", () => CorrectIcon)} }>Zap!</button>
+          <button className="incorrect" onClick={() => {actionFlashCard("incorrect", () => IncorrectIcon)} }>Não lembrei</button>
+          <button className="almost" onClick={() => {actionFlashCard("almost", () => AlmostIcon)}  }>Quase não lembrei</button>
+          <button className="correct" onClick={() => {actionFlashCard("correct", () => CorrectIcon)} }>Zap!</button>
         </div>
       </div>
     );

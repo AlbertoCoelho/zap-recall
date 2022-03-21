@@ -3,7 +3,7 @@
 }
 
 .container-flashcard-not-clicked {
-  width: 90%;
+  width: 85%;
   height: 65px;
   
   display: flex;
@@ -17,6 +17,13 @@
   box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.15);
   border-radius: 5px;
 
+  backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transition: all .5s;
+  transform-style: preserve-3d;
+
+  /* transform: rotateY(0deg); */
 }
 
 .container-flashcard-not-clicked span {
@@ -29,7 +36,7 @@
 }
 
 .container-flashcard-clicked {
-  width: 90%;
+  width: 85%;
   height: 131px;
 
   display: flex;
@@ -41,6 +48,8 @@
   background-color: #FFFFD5;
   box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.15);
   border-radius: 5px;
+
+  /* transform: rotateY(-180deg); */
 }
 
 .container-flashcard-clicked img{
@@ -132,17 +141,30 @@
   text-align: center;
 
   border-radius: 5px;
+
+  font-family: 'Recursive';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  border:none;
+
+  color: #FFFFFF;
 }
 
-.button-container button.incorrect{
+.button-container .incorrect{
   background-color: #FF3030;
 }
 
-.button-container button.almost{
+.button-container .almost{
   background-color: #FF922E;
 }
 
-.button-container button.correct{
+.button-container .correct{
   background-color: #2FBE34;
 }
 

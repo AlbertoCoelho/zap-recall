@@ -7,6 +7,9 @@ import Sad from "../../assets/sademoticon.svg";
 import Party from "../../assets/partyemoticon.svg";
 
 const Footer = ({ answeredFlashcards,sizeDeck,footerImages,finalFooter }) => {
+  console.log(footerImages)
+
+
   if(finalFooter === "incorrect"){
     return (
       <div className="footer-final">
@@ -20,7 +23,8 @@ const Footer = ({ answeredFlashcards,sizeDeck,footerImages,finalFooter }) => {
         <div className="footer-container">
           <span>{answeredFlashcards}/{sizeDeck} CONCLUÍDOS</span>
           <div className="icons">
-            <img src={footerImages} alt="Footer Images" /> 
+            { footerImages.map( item => <img src={item} alt="Footer images"/>) }
+            {/* <img src={footerImages} alt="Footer Images" />  */}
           </div>
         </div>
       </div>
